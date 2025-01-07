@@ -8,8 +8,23 @@ $(document).ready(function(){
 });
 
 var clockDiv = document.getElementById('clock');
-clockDiv.innetText = hours + ":" + minutes + ":" + seconds;
+clockDiv.innerText = hours + ":" + minutes + ":" + seconds + " " + meridiem;
 
 setInterval(displayTime, 1000);
+
+if (seconds < 10) {
+	seconds = "0" + seconds;
+}
+
+var meridiem = "AM";
+
+if (hours > 12) {
+	hours = hours - 12;
+	merdiem = "PM";
+}
+
+if (hours === 0) {
+	hours = 12;
+}
 
 displayTime();
